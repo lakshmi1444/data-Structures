@@ -30,7 +30,8 @@ class LinkedList:
       it = it.next
     it.next =Node(data,None)
   def insert_at_index(self,index,data):
-    
+    if index<0 and index > self.lengthofLinkedList():
+      raise Exception("Invalid Exception ")
     
     if index ==0:
       self.insert_at_begining(data)
@@ -78,7 +79,10 @@ class LinkedList:
       self.insert_at_end(data)
 
   def printLinkedList(self):
-    if self.head is not None:
+    if self.head is None:
+      print("Empty Linked List")
+      return
+    else:
       it = self.head
       llstr = ""
       while it:
